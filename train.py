@@ -85,6 +85,12 @@ def main():
         if args.optimizer == 'adam':
             args.only_train_transformer_layers = True
 
+    if args.model_name == '1558M':
+        args.memory_saving_gradients = True
+        if args.optimizer == 'adam':
+            args.only_train_transformer_layers = True
+
+            
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
     config.graph_options.rewrite_options.layout_optimizer = rewriter_config_pb2.RewriterConfig.OFF
